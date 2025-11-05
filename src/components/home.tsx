@@ -1,6 +1,10 @@
+import Login from "./login";
+
 const Home = () => {
     return (  
-        <h1>Home</h1>
+        <div className="bg-[rgb(22,22,22)] flex justify-center items-center home">
+            <Login/>
+        </div>
     );
 }
  

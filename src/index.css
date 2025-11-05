@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+.home{
+  padding: 50px;
+  height: 100vh;
+}
