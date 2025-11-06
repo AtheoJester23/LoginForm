@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
     const PORT = import.meta.env.VITE_PORT;
+    const navigate = useNavigate();
 
     console.log("This is port: ", PORT)
 
@@ -32,12 +35,17 @@ const Login = () => {
 
             const data = await response.json();
 
+            if(data.message == "Login Successful"){
+                console.log("Message: ", data.message);
+                console.log("Token: ", data.token);
+                console.log("User: ", data.user)
+                navigate("/logged");
+            }
 
-            console.log("Token: ", data.token);
-            console.log("User: ", data.user)
             // return data;
         } catch (error) {
             console.error((error as Error).message)
+            alert(`${(error as Error).message}`)
         }
     }
 
@@ -57,7 +65,7 @@ const Login = () => {
                 <input type="text" name="password" id="password" placeholder="Password" className="px-3 border py-2 rounded"/>
             </div>
 
-            <button className="bg-green-500 rounded p-2 text-white font-bold -translate-y-0.25 hover:translate-none duration-200 cursor-pointer shadow hover:shadow-none">Submit</button>
+            <button className="bg-green-500 rounded p-2 text-white font-bold -translate-y-0.25 hover:translate-none duration-200 cursor-pointer shadow hover:shadow-none hover:bg-green-600">Submit</button>
         </form>
     );
 }

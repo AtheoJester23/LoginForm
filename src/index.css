@@ -4,3 +4,10 @@
   padding: 50px;
   height: 100vh;
 }
+
+.DashB{
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: white;
+}
