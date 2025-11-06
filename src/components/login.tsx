@@ -40,6 +40,7 @@ const Login = () => {
                 console.log("Token: ", data.token);
                 console.log("User: ", data.user)
                 navigate("/logged");
+                localStorage.setItem("token", data.token)
             }
 
             // return data;
