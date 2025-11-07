@@ -1,11 +1,19 @@
 import type { ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { isTokenExpired } from "../utils/checkTokenExp";
 
 const ProtectedRoute = ({children}: {children: ReactNode}) => {
     const token = localStorage.getItem("token")
     const navigate = useNavigate();
 
-    if(!token) navigate("/")
+    if(!token){
+        return <Navigate to="/" replace />;
+    }
+
+    if(isTokenExpired(token)){
+        localStorage.removeItem("token");
+        return null;
+    }
         
     return children;
 }

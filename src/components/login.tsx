@@ -37,10 +37,10 @@ const Login = () => {
 
             if(data.message == "Login Successful"){
                 console.log("Message: ", data.message);
-                console.log("Token: ", data.token);
+                console.log("Token: ", data.Token);
                 console.log("User: ", data.user)
                 navigate("/logged");
-                localStorage.setItem("token", data.token)
+                localStorage.setItem("token", data.Token)
             }
 
             // return data;
